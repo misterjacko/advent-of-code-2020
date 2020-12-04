@@ -3,7 +3,7 @@ from datetime import datetime
 starttime = datetime.now()
 transactions = []
 
-datafile = open("./data/day1data.txt", "r")
+datafile = open("day1data.txt", "r")
 for aline in datafile:
     transactions.append(int(aline))
 datafile.close()

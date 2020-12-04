@@ -4,7 +4,7 @@ import re
 starttime = datetime.now()
 passwords = []
 
-datafile = open("./data/day2data.txt", "r")
+datafile = open("day2data.txt", "r")
 for aline in datafile:
     passwords.append(re.split('[-|:\s]', aline))
 datafile.close()
