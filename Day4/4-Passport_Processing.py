@@ -65,7 +65,6 @@ def validatedata (dict):
   valid = schema.is_valid(dict)
   return valid
 
-
 def part2(A):
   validcount = 0
   val = re.compile('cid')
