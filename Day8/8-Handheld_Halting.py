@@ -2,12 +2,9 @@ from datetime import datetime
 import copy
 
 def readFile(filename):
-  dataset = []
-  datafile = open(filename, "r")
-  for aline in datafile:
-    dataset.append(aline.strip().split(' '))
-  datafile.close()
-  return dataset
+  with open(filename, "r") as fh:
+    lines = fh.readlines()
+    return [x.strip().split(' ') for x in lines]
 
 
 def part1(A):
