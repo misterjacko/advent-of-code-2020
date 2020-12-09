@@ -1,12 +1,9 @@
 from datetime import datetime
 
 def readFile(filename):
-    transactions = []
-    datafile = open(filename, "r")
-    for aline in datafile:
-        transactions.append(int(aline))
-    datafile.close()
-    return transactions
+    with open(filename, 'r') as f:
+      lines = f.readlines()
+    return [int(x) for x in lines]
 
 def part1(A):
   for i in A:
