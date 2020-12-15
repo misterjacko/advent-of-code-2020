@@ -30,10 +30,51 @@ def part1(A):
         closestBus = ID
   return int(closestBus)*closestTime
 
+def nextPair(step, val1, val2, iter):
+  val1 = step
+  print (step)
+  while (val1 + iter) % val2 != 0:
+    val1 += step
+    print (val1)
+  return val1
+
+def part2(A):
+  bus = parseData(A[1])
+  lastval = 0
+  step = 1
+  time = 0
+  for idx, ID in enumerate(bus):
+    if ID != 'x':
+      time = nextPair(step, 0, ID, idx)
+      print (time)
+      if idx == 0:
+        step = time
+      else:
+        step = time * (ID + idx)
+
+  # for x in range(len(bus)):
+  #   print (bus[x])
+  #   if bus[x] != 'x':
+  #     time = lcd(time, bus[x] - x)
+  #   else:
+  #     continue
+  # while valid == False:
+  #   valid = True
+  #   time += int(bus[0])
+  #   for x in range(len(bus)):
+  #     if bus[x] != 'x':
+  #       if (time + x) % int(bus[x])!= 0: #==0 when number is valid
+  #         valid = False
+  #         break
+  # print('-----')
+  print (time)
+    
+  return (time)
+
 def test():
   test_input = (readFile("test.txt"))
   assert part1(test_input) == 295
-  #assert part2(test_input) == 1068781
+  assert part2(test_input) == 1068781
 
 if __name__ == "__main__":
   test()
